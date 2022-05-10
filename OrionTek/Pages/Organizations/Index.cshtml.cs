@@ -19,11 +19,11 @@ namespace OrionTek.Pages.Organizations
             _context = context;
         }
 
-        public IList<Organization> Organization { get;set; }
-
+        public IList<Organization> Organization { get;set; }        
         public async Task OnGetAsync()
         {
-            Organization = await _context.Organizations.ToListAsync();
+            Organization = await _context.Organizations.Include(i => i.Clients).ToListAsync();
+            
         }
     }
 }

@@ -31,6 +31,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Organization[0].ModifiedDate)
             </th>
+            <th>
+                Cantidad de Clientes
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -56,9 +59,12 @@
                 @Html.DisplayFor(modelItem => item.ModifiedDate)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Clients.Count)
+            </td>
+            <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="/Clients/OrganizacionClients" asp-page-handler="Clients" asp-route-guid="@item.Id">Organization Clients</a> |
             </td>
         </tr>
 }

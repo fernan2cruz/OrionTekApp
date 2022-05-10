@@ -7,8 +7,8 @@ namespace OrionTek.Entities
     {
         public string Name { get; set; }
         public string LastName { get; set; }
-        public DateTime? BirthDay { get; set; }
+        public DateTime? BirthDay { get; set; }        
         public List<Address> Addresses { get; set; }
-
+        public string FullName => $"{Name} {LastName}";
     }
 }

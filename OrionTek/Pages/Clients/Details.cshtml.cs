@@ -28,7 +28,7 @@ namespace OrionTek.Pages.Clients
                 return NotFound();
             }
 
-            Client = await _context.Clients.FirstOrDefaultAsync(m => m.Id == id);
+            Client = await _context.Clients.Include(i=> i.Addresses).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Client == null)
             {
